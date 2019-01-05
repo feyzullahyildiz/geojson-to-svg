@@ -1789,10 +1789,10 @@ for (var index in cities.features) {
       try {
         for (var _iterator2 = polygon[0][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
           var _step2$value = _slicedToArray(_step2.value, 2),
-              ilk = _step2$value[0],
-              iki = _step2$value[1];
+              _x = _step2$value[0],
+              _y = _step2$value[1];
 
-          points += "".concat(parseInt(ilk / 2000 - 1350), ",").concat(parseInt(2600 - iki / 2000), " ");
+          points += "".concat(parseInt(_x / 2000 - 1350), ",").concat(parseInt(2600 - _y / 2000), " ");
         }
       } catch (err) {
         _didIteratorError2 = true;
