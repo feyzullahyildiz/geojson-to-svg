@@ -1761,6 +1761,8 @@ var centroids = require('./iller-orta.json');
 
 var container = document.querySelector('.container'); // [ 2857405, 4275017 ], [ 2857405, 5175729 ], [ 4989109, 5175729 ], [ 4989109, 4275017 ], [ 2857405, 4275017 ] //bbox
 
+var xSpace = 1420;
+var ySpace = 2590;
 var pointArray = '';
 
 for (var index in cities.features) {
@@ -1771,8 +1773,8 @@ for (var index in cities.features) {
       x = _centroids$features$i[0],
       y = _centroids$features$i[1];
 
-  x = parseInt(x / 2000 - 1350);
-  y = parseInt(2600 - y / 2000);
+  x = parseInt(x / 2000 - xSpace);
+  y = parseInt(ySpace - y / 2000);
   pointArray += "<g>";
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
@@ -1792,7 +1794,7 @@ for (var index in cities.features) {
               _x = _step2$value[0],
               _y = _step2$value[1];
 
-          points += "".concat(parseInt(_x / 2000 - 1350), ",").concat(parseInt(2600 - _y / 2000), " ");
+          points += "".concat(parseInt(_x / 2000 - xSpace), ",").concat(parseInt(ySpace - _y / 2000), " ");
         }
       } catch (err) {
         _didIteratorError2 = true;
@@ -1829,7 +1831,7 @@ for (var index in cities.features) {
   pointArray += "\n    <text x=\"".concat(x, "\" y=\"").concat(y, "\" fill=\"white\">\n        <tspan text-anchor=\"middle\">").concat(code, "</tspan>\n    </text>\n    </g>");
 }
 
-var svg = "\n<svg viewBox=\"0 0 1200 500\" width=\"100%\">\n".concat(pointArray, "\n</svg>\n");
+var svg = "\n<svg viewBox=\"0 0 1080 460\" width=\"100%\">\n".concat(pointArray, "\n</svg>\n");
 container.innerHTML = svg;
 var citiesPolygons = container.querySelectorAll('svg g');
 
@@ -1876,7 +1878,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65031" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54093" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
