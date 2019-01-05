@@ -14,8 +14,8 @@ for(const index in cities.features){
     pointArray += `<g>`
     for (const polygon of feature.geometry.coordinates) {
         let points = ''
-        for (const [ilk, iki] of polygon[0]) {
-            points += `${parseInt((ilk/2000) - 1350)},${parseInt(2600 - (iki/2000))} `
+        for (const [_x, _y] of polygon[0]) {
+            points += `${parseInt((_x/2000) - 1350)},${parseInt(2600 - (_y/2000))} `
         }
         pointArray +=`<polygon points="${points}"/>`
     }
