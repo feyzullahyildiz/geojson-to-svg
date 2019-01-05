@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel index.html --open",
     "parcel": "parcel",
-    "build:gh-pages": "parcel build index.html --public-url ./geojson-to-svg",
+    "build:gh-pages": "parcel build index.html --public-url /geojson-to-svg",
     "deploy:dist": "gh-pages -d dist",
     "deploy": "npm-run-all build:gh-pages deploy:dist"
   },
