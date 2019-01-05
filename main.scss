@@ -1,0 +1,22 @@
+.html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+}
+.container{
+    width: 100%;
+    height: 100%;
+
+    svg g {
+        polygon {
+            fill:lime;
+            stroke:purple;
+            stroke-width:1;
+        }
+        text tspan {
+            pointer-events: none;
+            user-select: none;
+        }
+    }
+}
