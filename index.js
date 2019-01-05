@@ -3,19 +3,20 @@ const centroids = require('./iller-orta.json')
 const container = document.querySelector('.container')
 
 // [ 2857405, 4275017 ], [ 2857405, 5175729 ], [ 4989109, 5175729 ], [ 4989109, 4275017 ], [ 2857405, 4275017 ] //bbox
-
+const xSpace = 1420
+const ySpace = 2590
 let pointArray = ''
 for(const index in cities.features){
     const feature = cities.features[index]
     const code = centroids.features[index].properties.ILKOD
     let [x, y] = centroids.features[index].geometry.coordinates
-    x = parseInt((x/2000) - 1350)
-    y = parseInt(2600- (y/2000))
+    x = parseInt((x/2000) - xSpace)
+    y = parseInt(ySpace - (y/2000))
     pointArray += `<g>`
     for (const polygon of feature.geometry.coordinates) {
         let points = ''
         for (const [_x, _y] of polygon[0]) {
-            points += `${parseInt((_x/2000) - 1350)},${parseInt(2600 - (_y/2000))} `
+            points += `${parseInt((_x/2000) - xSpace)},${parseInt(ySpace - (_y/2000))} `
         }
         pointArray +=`<polygon points="${points}"/>`
     }
@@ -26,7 +27,7 @@ for(const index in cities.features){
     </g>`
 }
 let svg = `
-<svg viewBox="0 0 1200 500" width="100%">
+<svg viewBox="0 0 1080 460" width="100%">
 ${pointArray}
 </svg>
 `
